@@ -1,0 +1,13 @@
+from graph import *
+
+x = 7000
+y = 7000
+windowSize(x,y)
+canvasSize(x,y)
+
+
+
+
+
+c=canvas()
+c.create_oval(100,100,300,200,fill= , outline =

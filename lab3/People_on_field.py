@@ -23,6 +23,7 @@ def ground():
     # Draw ground.
 	
 def man(x_left):
+    penColor("black")
     line(x_left + m*(1 + 2/5), 5/2*t - 20,
          x_left + m*(1 + 1/5), 7/2*t - 20)
     line(x_left + m*(1 + 3/5), 5/2*t - 20,
@@ -36,28 +37,34 @@ def man(x_left):
     			  fill = '#808080', 
     			  outline = '#808080')
     brushColor(200, 200, 200)
+    penColor(200, 200, 200)
     circle(x_left + 3*m/2,
            1.5*t - R/2.5,
     	   R)
-    # Draw man with indent x_left from left border.
+    # Draw man with indent x_left 
+	# from left border.
 	   
 def woman(x_left):
+    penColor("black")
     line(x_left + m*(1 + 2/5), 5/2*t - 20,
          x_left + m*(1 + 1/5), 7/2*t - 20)
     line(x_left + m*(1 + 3/5), 5/2*t - 20,
          x_left + m*(1 + 4/5), 7/2*t - 20)
     brushColor(255, 0, 255)
-    triangleA=[
+    penColor(255, 0, 255)
+    triangleA = [
         (x_left + 1.5*m, 3/2*t),
     	(x_left + m, 5/2*t),
     	(x_left + 2*m, 5/2*t)
     	]
     polygon(triangleA)
     brushColor(200, 200, 200)
+    penColor(200, 200, 200)
     circle(x_left + 3*m/2,
            1.5*t - R/4,
     	   R)
-    # Draw woman with indent x_left from left border.
+    # Draw woman with indent x_left 
+	# from left border.
     	   
 def heart(x_bottom, y_bottom):
     brushColor("red")
@@ -105,14 +112,34 @@ def ice_cream(x_bottom, y_bottom):
     # and y_bottom from upper border.
 	
 def woman_hands():
-    pass
+    line(x/10 + 3*m, 2 * t, 
+	     x*3/10 + 1.5*m, 3/2*t + R)
+    line(x*3/10 + 1.5*m, 3/2*t + R, 
+         x*3/10 + 3*m, 7/4*t + R)
+    line(x * 7 / 10, 2 * t, 
+	     x*7/10 - 1.5*m, 3/2*t + R)
+    line(x*7/10 - 1.5*m, 3/2*t + R, 
+         x*3/10 + 3*m, 7/4*t + R)
+    # Draw woman's hands
+
+def stick(x1, y1, x2, y2):
+    penColor("black")
+    line(x1, y1, x2, y2)
+	# Draw stick: (x1, y1) is a beginning 
+	# (x2, y2) is the end
     
 sky()
 ground()
+woman_hands()
 man(x / 10)
 man(x * 7 / 10)
 woman(x * 3 / 10)
 woman(x * 5 / 10)
-heart(300, 200)
-ice_cream(100, 100)
+stick(x / 10, 2 * t, 
+      x / 11, 3 / 2 * t)
+stick(x*3/10 + 3*m, 7/4*t + R, 
+      x*3/10 + 2.5*m, t + R)
+heart(x / 11, 3 / 2 * t)
+ice_cream(x*3/10 + 2.5*m, t + R)
+ice_cream(x*7/10 + 3*m, 2 * t)
 run()
